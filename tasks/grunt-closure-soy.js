@@ -10,6 +10,9 @@ module.exports = function (grunt) {
 		outputPathFormat: '{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js'
 	};
 
+	var soyToJsJarPath = require.resolve('google-closure-templates');
+	soyToJsJarPath = soyToJsJarPath.replace(/\/package.json$/, '/javascript/SoyToJsSrcCompiler.jar');
+
 	grunt.registerMultiTask('closureSoys', "SOYs (Google Closure) template generator", function () {
 		var _ = grunt.util._;
 		var done = this.async();
@@ -20,7 +23,7 @@ module.exports = function (grunt) {
 		var args = [];
 
 		// path to jar is always the first parameter
-		args.push(['-jar', config.soyToJsJarPath]);
+		args.push(['-jar', soyToJsJarPath]);
 		// output format which is required
 		args.push(['--outputPathFormat', config.outputPathFormat]);
 

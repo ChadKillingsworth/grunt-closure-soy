@@ -18,8 +18,6 @@ Then specify what files to compress in your config:
       all: {
         /** @required  - string including grunt glob variables*/
         src: './static/template/**/*.soy',
-        /** @required  - string including grunt glob variables*/
-        soyToJsJarPath: './closure-library/template/SoyToJsSrcCompiler.jar',
         /** @optional  - defaults to '{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js' */
         outputPathFormat: '{INPUT_DIRECTORY}/{INPUT_FILE_NAME}.js'
         /** any other parameter included on the options will be added to call */
